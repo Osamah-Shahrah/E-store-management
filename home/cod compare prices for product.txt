@@ -1,0 +1,76 @@
+
+                <!-- div card compartive -->
+
+                <div class='card direct-chat direct-chat-warning collapsed-card'>
+
+                    <div class='card-header'>
+
+                        <h3 class='card-title ' style="float: right;">مقارنة اسعار المنتج </h3>
+
+                        <div class='card-tools' style="float: left;">
+
+
+                            <!-- new massg -->
+                            <span data-toggle='tooltip' title='3 ' class='badge badge-warning'></span>
+
+
+
+
+                            <button type='button' class='btn btn-tool' data-card-widget='collapse'><i
+                                    class='fas fa-plus'></i>
+                            </button>
+
+
+                            <button type='button' class='btn btn-tool' data-card-widget='remove'><i
+                                    class='fas fa-times'></i>
+                            </button>
+
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class='card-body'>
+                        <div class='direct-chat-messages'>
+                            <ul class='users-list clearfix'>
+
+                                <?php 
+                            };
+                            //product_title='$product_title' and
+                                $compartive_query = "SELECT com_name,price,icon FROM `product`join company on product.com_id=company.com_id where  product.QR_number=$QR_number "or die(mysqli_error($con));
+
+                                $run_query5 = mysqli_query($con, $compartive_query)or die(mysqli_error($con));
+                                if (mysqli_num_rows($run_query5) > 0) {
+                                    while ($row = mysqli_fetch_array($run_query5)) {
+                                     $com_name = $row['com_name'];
+                                     $price = $row['price'];
+                                     $icon = $row['icon'];
+
+                                     echo"
+                                    <li>
+                                      <img src='../img/imag_comb/$icon' alt='User Image'>
+                                      <a class='users-list-name' href='#'>$com_name</a>
+                                      <span class='users-list-date'>$price</span>
+                                    </li>
+                                ";
+                                    };
+                                    echo"
+                                    
+
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                    <!-- end div the compartive -->
+
+                    
+
+
+
+                </div>
+                

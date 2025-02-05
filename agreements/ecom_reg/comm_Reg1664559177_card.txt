@@ -1,0 +1,36 @@
+<div class="row dd row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="height:400px;  overflow: scroll;">
+    <?php 
+
+    $company_query="SELECT `com_id`, `com_name`, `com_phone`, `city`, `address`, `com_email`, `password`, `icon`, `com_status`, `date_added`, `date_modifide` FROM `company` ";
+    $result=mysqli_query($con,$company_query);
+    while($i=mysqli_fetch_array($result)){
+        echo "
+        
+        <div class='col-md-4 '>
+
+<div class='card shadow-sm' style='width:200px'>
+            <img  src='../product_images/$i[icon]' class='bd-placeholder-img card-img-top' width='100%' height='200' xmlns='http://www.w3.org/2000/svg' role='img' 
+            aria-label='Placeholder: $i[city]' 
+            preserveAspectRatio='xMidYMid slice' 
+            focusable='false'>
+            <title>Placeholder</title>
+            <rect width='100%' height='100%' fill='#55595c'/><text x='50%' y='50%' fill='#eceeef' dy='.3em'>$i[city]</text></svg>
+
+            <div class='card-body'>
+              <p id='com_name' class='card-text '><a href='manage_products.php?com_id=$i[com_id]'>$i[com_name]</a></p>
+              <div class='d-flex justify-content-between align-items-center'>
+                <div class='btn-group'>
+                  <button type='button' class='btn btn-sm btn-outline-secondary'>عرض</button>
+                  <button type='button' class='btn btn-sm btn-outline-secondary'>تعديل</button>
+                </div>
+                <small class='text-muted'>9 دقائق</small>
+              </div>
+            </div>
+          </div>
+</div>
+        ";
+    }
+    ?>
+
+
+</div>

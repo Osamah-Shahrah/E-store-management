@@ -1,0 +1,381 @@
+Table admin_info
+that table for information for admin web sit
+-admin_state:
+0 stop cant do any thing 
+1 working 
+2 deleted from view however sit on table on page other or table for this staffs
+-admin_type
+thai is the permission for the staff
+0 cand do any thing guest see home page
+1 he can do any thing
+2 control company
+3 control bunch
+4 control customer
+
+///////////
+
+
+Table bunch
+that for bunch on the web site the company's can request any bunch for them company
+-bunch_form_status
+0 stoped
+1 working
+
+-add columns 
+date update
+
+
+/////////
+Table bunch_com
+this table for bunch the comapne haven't when accepte to add for company or added for this company 
+that take all data from bunch into bunch com for don't see any trouble 
+
+bunch_com_status:
+0 requesr from the manger for company
+1 working
+2 stopped from admin website 
+
+
+///////
+
+Table company
+This table for company's subscribers on the website
+-com_status
+0 that is requested for subscribers on the website but that request don't show before the  comm_Reg and contract_accept don't equal 0 or null
+1 working
+2 stoped from manger the company he can open and do any thing but the customer can't see the company or any product for him
+3 stopped from admin website he can't open or do any thing and don't show any product for customer 
+4 this company unacceptable to add
+this status chang whith mang_com Sam  idea for all
+
+
+add page data owner company or add this data for page mang company for chang or edit any thing
+
+-comm_Reg 
+this filed for (صورة السجل التجاري)this upload file pdf or image and save name file on table for see this file on table accept company
+
+-contract_accept
+this filed for upload file contract between websites  and company's want to subscribe after he accepted the rules he print copy from contract and sign and send
+
+
+
+
+
+
+
+
+///////
+
+Table mang_com
+this table to save data owner the company and manger this for connect with hem and they can connect with us 
+-status:
+same idea for company and whem chang any think on table coompany this table well chang 
+
+
+
+
+
+///////
+Table delivery_com
+This table for company delivery
+
+-delivery_statue:
+0 request for add as personally or company from page add or  company 
+1 working
+2 stopped from mange company for it company delivery
+3 stopped from amnger website 
+4 unacceptable for work with us
+
+
+-chang this table for people or company and analysis this position-add columns com_id 
+-add columns type this delivers 
+-add page for people want subscribe work with us
+-add page for the order delivery
+
+
+/////////////
+Table  department
+this table for form department the comapny can't add any department that for original the product and website
+-depart_state
+
+1 working
+2 stopped from admin website when that stop the categories the company can't add any products for this categories 
+3 stopped for all when this chose that will hide every product for all the company's 
+
+
+
+
+
+
+/////////////
+Table  department_com
+this table for department and company this for relation between that
+-depart_state_com:
+0 request for add
+1 working
+2 stopped don't show on company page and his products
+3 stopped don't add products for this department but you can show on the company
+4 stopped from admin website you can't chang that
+
+
+-add columns department_icon for the company if any one chang the photo and when he request for add any department
+
+
+
+
+
+
+////////
+Table categories
+This table for categories products this link with department table as forgit 
+-state_cat
+
+1 working
+2 stopped from admin website when that stop the categories the company can't add any products for this categories 
+3 stopped for all when this chose that will hide every product for all the company's 
+
+
+
+-add table categories_com for company can choose any category he want or not
+columns id_cat_com,fk_cat_id,name_cat_com,fk_depart_id,fk_com_id,about_cat_com,icon_cat_com,cat_com_status
+cat_com_status:
+-0 request from company to add it with department 
+-1 working
+-2 stopped don't show on company page and his products
+-3 stopped don't add products for this department but you can show on the company
+-4 stopped from admin website you can't chang that
+
+
+
+
+
+
+
+
+
+////////
+Table form_items_pro
+this item table for some properties like(ملابس علوية,ملابس سهرة,شتوية)this details this table link with categories M:M for that i need other table
+
+-status_ite_for:
+0 request from company manger to add it with for categorie
+1 working
+2 stopped from admin website don't show on website but his product will view
+3 stopped from admin website don't add products for this item but can show on the website
+
+
+////////
+Table items_product
+
+this table for link two table form_items_pro with products when chose and one or many think that well save on this table from table format
+-item_prod_statues:
+0 for stop don't see this item for this product
+1 working this item for this product
+
+
+
+
+
+
+
+
+
+////////
+Table form_size
+this table for format size the products this table link with categories M:M for that i need other table
+
+-form_state:
+0 request from company manger to add it with for categorie
+1 working
+2 stopped from admin website don't show on website but his product will view
+3 stopped from admin website don't add products for this item but can show on the website
+
+////////
+Table size_product 
+this table for link the two table form_size and product her on chose on from form size the well chang ang save her on this table for one product
+
+-size_status:
+0 for stop don't see this size for this product
+1 working this size for this product
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////
+Table order
+this table for order from company use staff to insert order and chack money and see the progress for this and on the future make customer insert order
+
+-status_order
+0 begin check order
+1 begin progress on money progess
+2 progess check
+3 delivers the order
+4 the order complite 
+5 deleted order
+
+-chack_order -chack_money -processor_order -delivery_order
+0 no checked
+1 checked
+2 deleted on this step 
+
+
+
+-custom_id
+this id customer if the customer have account in the website you can chose when write phone number or name
+
+-type_order
+1 paid in advance
+2 pay later
+
+-pers_gift
+this order gift or personal1 personally2 gift 
+
+
+
+add if this order gift add name the personal and all data for the sender and receiver
+
+
+
+
+
+
+
+
+
+
+
+////////
+Table order_item
+this table for item for order this table between order and product because the relation ships M:M
+
+
+-item_statue
+0 deleted
+1 avaliable2 complit the product and we dont have this chose from the delivery or checking can use this chose and mines prices the order
+
+
+
+-com_id_item_ord
+this for see the item and order for the company don't loses and data 
+
+
+
+
+////////
+Table product
+table products all data for products 
+
+-status_pro:
+0 deleted
+1 working
+2 deleted from admin website
+
+
+
+
+
+
+
+
+
+////////
+Table reactive_company
+this table th activities user and customer with comapany
+
+add status for this activity for can delete the comments pad
+and tow don't chang any comment gist hide 
+
+
+
+
+////////
+Table  reactive_product
+this table th activities user and customer with products 
+
+
+add status for this activity for can delete the comments pad
+and tow don't chang any comment gist hide 
+
+
+
+
+
+////////
+Table shipping
+this table between table driver and order 
+-statue_ship:
+0 being for work
+1 accept this work
+2 unaccessible
+3 this done
+4 filed 
+
+-type_ship:
+fast
+normal
+on date spatial 
+-ship_date_receipt:
+date and time this order arrive to the customer
+
+
+
+////////
+Table system_info
+this table for data the website  for all data as phone and email and name and icon
+
+
+
+
+
+
+
+////////
+Table user
+thius table for staff on the company and customer because not different between  data for that i join the all data in one table
+
+-user_state:
+0 stopped from amnger the company
+1 working
+2 deleted from admin websites 
+
+-fk_permissions:
+1 don't have any permission as normal customer
+2 data entry
+3 deliver
+4 finance5 monitor
+6 manger
+
+
+-user_type:
+1 work with company
+2 normally customers 
+
+
+
+
+
+design the permissions for view some page just as the permission 
+
+
+
+////////
+Table user_permissions
+this table for permission the staff on the company
+
+-status_user_permissions:
+0 request from company
+1 working
+2 deleted from admin website this don't see this permission but the staff can open the website 
